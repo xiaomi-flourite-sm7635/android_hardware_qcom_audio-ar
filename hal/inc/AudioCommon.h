@@ -43,26 +43,27 @@
 #define AHAL_LOG_DBG             (0x8) /**< debug message, required at minimum for debug.*/
 #define AHAL_LOG_VERBOSE         (0x10)/**< verbose message, useful primarily to help developers debug low-level code */
 
-static uint32_t ahal_log_lvl = AHAL_LOG_ERR|AHAL_LOG_WARN|AHAL_LOG_INFO|AHAL_LOG_DBG; /*TODO make this dynamic*/
+static uint32_t ahal_local_log_lvl = AHAL_LOG_ERR | AHAL_LOG_WARN |
+        AHAL_LOG_INFO | AHAL_LOG_DBG; /* TODO: make this dynamic. */
 
 
 #define AHAL_ERR(arg,...)                                          \
-    if (ahal_log_lvl & AHAL_LOG_ERR) {                              \
+    if (ahal_local_log_lvl & AHAL_LOG_ERR) {                        \
         ALOGE("%s: %d: "  arg, __func__, __LINE__, ##__VA_ARGS__);\
     }
 #define AHAL_WARN(arg,...)                                          \
-    if (ahal_log_lvl & AHAL_LOG_WARN) {                              \
+    if (ahal_local_log_lvl & AHAL_LOG_WARN) {                        \
         ALOGW("%s: %d: "  arg, __func__, __LINE__, ##__VA_ARGS__);\
     }
 #define AHAL_DBG(arg,...)                                           \
-    if (ahal_log_lvl & AHAL_LOG_DBG) {                               \
+    if (ahal_local_log_lvl & AHAL_LOG_DBG) {                         \
         ALOGD("%s: %d: "  arg, __func__, __LINE__, ##__VA_ARGS__); \
     }
 #define AHAL_INFO(arg,...)                                         \
-    if (ahal_log_lvl & AHAL_LOG_INFO) {                             \
+    if (ahal_local_log_lvl & AHAL_LOG_INFO) {                       \
         ALOGI("%s: %d: "  arg, __func__, __LINE__, ##__VA_ARGS__);\
     }
 #define AHAL_VERBOSE(arg,...)                                      \
-    if (ahal_log_lvl & AHAL_LOG_VERBOSE) {                          \
+    if (ahal_local_log_lvl & AHAL_LOG_VERBOSE) {                    \
         ALOGV("%s: %d: "  arg, __func__, __LINE__, ##__VA_ARGS__);\
     }

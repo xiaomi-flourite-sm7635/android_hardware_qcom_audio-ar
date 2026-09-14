@@ -64,6 +64,9 @@
 #include "audio_extn.h"
 #include "battery_listener.h"
 
+// Kept for ABI compatibility with Xiaomi amplifier calibration libraries.
+uint32_t ahal_log_lvl = AHAL_LOG_ERR | AHAL_LOG_WARN | AHAL_LOG_INFO | AHAL_LOG_DBG;
+
 #define MIC_CHARACTERISTICS_XML_FILE "/vendor/etc/microphone_characteristics.xml"
 static pal_device_id_t in_snd_device = PAL_DEVICE_NONE;
 microphone_characteristics_t AudioDevice::microphones;

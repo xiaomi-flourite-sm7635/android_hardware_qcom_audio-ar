@@ -87,6 +87,8 @@ target_board_platform_cc_library_shared {
     ],
 
     include_dirs: [
+        "hardware/qcom-caf/sm8650/audio/agm/ipc/HwBinders/agm_ipc_service/inc",
+        "hardware/qcom-caf/sm8650/audio/pal/ipc/HwBinders/pal_ipc_server/inc",
         "system/media/audio_effects/include",
     ],
 

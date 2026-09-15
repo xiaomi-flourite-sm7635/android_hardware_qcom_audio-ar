@@ -67,6 +67,12 @@
 // Kept for ABI compatibility with Xiaomi amplifier calibration libraries.
 uint32_t ahal_log_lvl = AHAL_LOG_ERR | AHAL_LOG_WARN | AHAL_LOG_INFO | AHAL_LOG_DBG;
 
+// Xiaomi's karaoke plugin expects telemetry hooks exported by the stock HAL.
+// They do not participate in audio routing, so keep them as ABI-only shims.
+void send_karaoke_data_to_xlog(int) {}
+void send_audio_silent_observer_to_xlog_counted(
+        int, const char *, const char *, const char *, int, const char *, const char *, long) {}
+
 #define MIC_CHARACTERISTICS_XML_FILE "/vendor/etc/microphone_characteristics.xml"
 static pal_device_id_t in_snd_device = PAL_DEVICE_NONE;
 microphone_characteristics_t AudioDevice::microphones;
